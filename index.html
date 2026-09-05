@@ -165,7 +165,6 @@
       text-align: center;
       cursor: pointer;
       transition: all 0.15s;
-      position: relative;
     }
 
     .voice-card:hover {
@@ -194,5 +193,534 @@
       font-weight: 600;
     }
 
-    .voice-card.male .voice-
-    
+    .voice-card.male .voice-avatar {
+      background: linear-gradient(135deg, #3b6fd9, #6ba3ff);
+    }
+
+    .voice-card.female .voice-avatar {
+      background: linear-gradient(135deg, #d94f7a, #ff8ab3);
+    }
+
+    .voice-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .voice-style {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .value {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-size: 0.82rem;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--surface-2);
+      border-radius: 3px;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--accent);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.25);
+    }
+
+    select, textarea {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      padding: 12px 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    select:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    .generate-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--accent), #9b6bff);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .generate-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .result-card {
+      display: none;
+      margin-top: 24px;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .result-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--success), #10b981);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+    }
+
+    .result-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .result-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .waveform {
+      height: 64px;
+      background: var(--surface-2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 0 16px;
+      margin-bottom: 16px;
+    }
+
+    .bar {
+      width: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(0.6); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    .player-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      flex: 1;
+      min-width: 120px;
+      padding: 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 10px;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .settings-summary {
+      margin-top: 16px;
+      padding: 14px;
+      background: var(--surface-2);
+      border-radius: 10px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .settings-summary strong {
+      color: var(--text);
+    }
+
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      place-items: center;
+    }
+
+    .loading-overlay.show {
+      display: grid;
+    }
+
+    .spinner {
+      width: 56px;
+      height: 56px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loader {
+      text-align: center;
+    }
+
+    .loader p {
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .loader .sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-icon">♪</div>
+        <h1>VoxSong</h1>
+      </div>
+      <p class="tagline">Create original AI songs with custom voices & lyrics</p>
+      <span class="badge">FREE PROTOTYPE · v0.1</span>
+    </header>
+
+    <div class="main-grid">
+      <div>
+        <div class="card" style="margin-bottom: 24px;">
+          <div class="card-title">Choose a Voice</div>
+          <div class="gender-tabs">
+            <button class="tab active-male" id="tab-male" onclick="switchGender('male')">Men (10)</button>
+            <button class="tab" id="tab-female" onclick="switchGender('female')">Women (10)</button>
+          </div>
+          <div class="voice-grid" id="voice-grid"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Lyrics</div>
+          <textarea id="lyrics" placeholder="Write your lyrics here...
+
+[Verse 1]
+Walking down this empty street tonight
+City lights are calling out my name
+
+[Chorus]
+We are the fire, we are the flame
+Nothing's ever gonna be the same"></textarea>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="position: sticky; top: 20px;">
+          <div class="card-title">Sound Controls</div>
+
+          <div class="control-group">
+            <label>Genre</label>
+            <select id="genre">
+              <option value="pop">Pop</option>
+              <option value="rock">Rock</option>
+              <option value="rap">Rap / Hip-Hop</option>
+              <option value="rnb">R&B / Soul</option>
+              <option value="electronic">Electronic / EDM</option>
+              <option value="country">Country</option>
+              <option value="indie">Indie / Alternative</option>
+              <option value="metal">Metal</option>
+              <option value="jazz">Jazz</option>
+              <option value="lofi">Lo-fi / Chill</option>
+              <option value="folk">Folk / Acoustic</option>
+              <option value="punk">Punk</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>Tone <span class="value" id="tone-val">50</span></label>
+            <input type="range" id="tone" min="0" max="100" value="50" oninput="updateVal('tone')" />
+          </div>
+
+          <div class="control-group">
+            <label>Pitch <span class="value" id="pitch-val">0</span></label>
+            <input type="range" id="pitch" min="-12" max="12" value="0" oninput="updateVal('pitch')" />
+          </div>
+
+          <div class="control-group">
+            <label>Bass <span class="value" id="bass-val">50</span></label>
+            <input type="range" id="bass" min="0" max="100" value="50" oninput="updateVal('bass')" />
+          </div>
+
+          <div class="control-group">
+            <label>Treble <span class="value" id="treble-val">50</span></label>
+            <input type="range" id="treble" min="0" max="100" value="50" oninput="updateVal('treble')" />
+          </div>
+
+          <button class="generate-btn" id="generate-btn" onclick="generateSong()">
+            <span>✨</span>
+            <span>Generate Song</span>
+          </button>
+
+          <div class="result-card" id="result-card">
+            <div class="result-header">
+              <div class="result-icon">✓</div>
+              <div>
+                <div class="result-title" id="result-title">Song Ready</div>
+                <div class="result-meta" id="result-meta">2:14 · AI Generated</div>
+              </div>
+            </div>
+
+            <div class="waveform" id="waveform"></div>
+
+            <div class="player-controls">
+              <button class="btn-secondary" onclick="alert('In a real version this would play the generated audio.')">▶ Play</button>
+              <button class="btn-secondary" onclick="alert('Download would be available after real generation.')">⬇ Download</button>
+              <button class="btn-secondary" onclick="shareSong()">↗ Share</button>
+            </div>
+
+            <div class="settings-summary" id="settings-summary"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        <strong>VoxSong</strong> is a free open prototype.<br />
+        Real AI music generation requires paid APIs.<br />
+        This demo shows the full UI & interaction.
+      </p>
+    </footer>
+  </div>
+
+  <div class="loading-overlay" id="loading">
+    <div class="loader">
+      <div class="spinner"></div>
+      <p id="loading-text">Composing your song…</p>
+      <p class="sub" id="loading-sub">Matching voice, genre & lyrics</p>
+    </div>
+  </div>
+
+  <script>
+    const maleVoices = [
+      { id: "m1", name: "Marcus", style: "Deep · Smooth", emoji: "M" },
+      { id: "m2", name: "Julian", style: "Warm · Soulful", emoji: "J" },
+      { id: "m3", name: "Kai", style: "Bright · Pop", emoji: "K" },
+      { id: "m4", name: "Diego", style: "Raspy · Rock", emoji: "D" },
+      { id: "m5", name: "Noah", style: "Soft · Indie", emoji: "N" },
+      { id: "m6", name: "Andre", style: "Powerful · Gospel", emoji: "A" },
+      { id: "m7", name: "Leo", style: "Crisp · Rap", emoji: "L" },
+      { id: "m8", name: "Finn", style: "Gentle · Folk", emoji: "F" },
+      { id: "m9", name: "Omar", style: "Velvet · R&B", emoji: "O" },
+      { id: "m10", name: "Rex", style: "Gritty · Metal", emoji: "R" }
+    ];
+
+    const femaleVoices = [
+      { id: "f1", name: "Aria", style: "Clear · Pop", emoji: "A" },
+      { id: "f2", name: "Luna", style: "Breathy · Indie", emoji: "L" },
+      { id: "f3", name: "Zara", style: "Powerful · Rock", emoji: "Z" },
+      { id: "f4", name: "Maya", style: "Warm · Soul", emoji: "M" },
+      { id: "f5", name: "Nova", style: "Bright · Electronic", emoji: "N" },
+      { id: "f6", name: "Ivy", style: "Soft · Folk", emoji: "I" },
+      { id: "f7", name: "Sienna", style: "Smooth · R&B", emoji: "S" },
+      { id: "f8", name: "Quinn", style: "Edgy · Alt", emoji: "Q" },
+      { id: "f9", name: "Elena", style: "Rich · Jazz", emoji: "E" },
+      { id: "f10", name: "Jade", style: "Fast · Rap", emoji: "J" }
+    ];
+
+    let currentGender = "male";
+    let selectedVoice = maleVoices[0];
+
+    function switchGender(gender) {
+      currentGender = gender;
+      document.getElementById("tab-male").className = "tab" + (gender === "male" ? " active-male" : "");
+      document.getElementById("tab-female").className = "tab" + (gender === "female" ? " active-female" : "");
+      selectedVoice = gender === "male" ? maleVoices[0] : femaleVoices[0];
+      renderVoices();
+    }
+
+    function renderVoices() {
+      const grid = document.getElementById("voice-grid");
+      const voices = currentGender === "male" ? maleVoices : femaleVoices;
+      grid.innerHTML = voices.map(v => `
+        <div class="voice-card ${currentGender} ${selectedVoice.id === v.id ? (currentGender === 'male' ? 'selected-male' : 'selected-female') : ''}"
+             onclick="selectVoice('${v.id}')">
+          <div class="voice-avatar">${v.emoji}</div>
+          <div class="voice-name">${v.name}</div>
+          <div class="voice-style">${v.style}</div>
+        </div>
+      `).join("");
+    }
+
+    function selectVoice(id) {
+      const voices = currentGender === "male" ? maleVoices : femaleVoices;
+      selectedVoice = voices.find(v => v.id === id);
+      renderVoices();
+    }
+
+    function updateVal(id) {
+      const el = document.getElementById(id);
+      const display = document.getElementById(id + "-val");
+      let val = el.value;
+      if (id === "pitch") {
+        display.textContent = (val > 0 ? "+" : "") + val + " st";
+      } else {
+        display.textContent = val;
+      }
+    }
+
+    function generateSong() {
+      const lyrics = document.getElementById("lyrics").value.trim();
+      if (!lyrics) {
+        alert("Please enter some lyrics first.");
+        return;
+      }
+
+      const btn = document.getElementById("generate-btn");
+      const loading = document.getElementById("loading");
+      const result = document.getElementById("result-card");
+
+      btn.disabled = true;
+      result.classList.remove("show");
+      loading.classList.add("show");
+
+      const stages = [
+        { text: "Analyzing lyrics…", sub: "Detecting structure & emotion" },
+        { text: "Matching voice…", sub: selectedVoice.name + " · " + selectedVoice.style },
+        { text: "Composing arrangement…", sub: document.getElementById("genre").value + " genre" },
+        { text: "Tuning pitch & tone…", sub: "Applying your slider settings" },
+        { text: "Rendering final mix…", sub: "Almost there" }
+      ];
+
+      let i = 0;
+      document.getElementById("loading-text").textContent = stages[0].text;
+      document.getElementById("loading-sub").textContent = stages[0].sub;
+
+      const interval = setInterval(() => {
+        i++;
+        if (i < stages.length) {
+          document.getElementById("loading-text").textContent = stages[i].text;
+          document.getElementById("loading-sub").textContent = stages[i].sub;
+        } else {
+          clearInterval(interval);
+          finishGeneration();
+        }
+      }, 900);
+    }
+
+    function finishGeneration() {
+      const loading = document.getElementById("loading");
+      const result = document.getElementById("result-card");
+      const btn = document.getElementById("generate-btn");
+
+      loading.classList.remove("show");
+      btn.disabled = false;
+
+      const wave = document.getElementById("waveform");
+      wave.innerHTML = "";
+      for (let i = 0; i < 48; i++) {
+        const bar = document.createElement("div");
+        bar.className = "bar";
+        bar.style.height = (18 + Math.random() * 36) + "px";
+        bar.style.animationDelay = (i * 0.04) + "s";
+        wave.appendChild(bar);
+      }
+
+      const genre = document.getElementById("genre").options[document.getElementById("genre").selectedIndex].text;
+      const tone = document.getElementById("tone").value;
+      const pitch = document.getElementById("pitch").value;
+      const bass = document.getElementById("bass").value;
+      const treble = document.getElementById("treble").value;
+
+      document.getElementById("result-title").textContent = selectedVoice.name + " — " + genre;
+      document.getElementById("result-meta").textContent = "2:1" + Math.floor(Math.random()*9) + " · AI Generated · Just now";
+
+      document.getElementById("settings-summary").innerHTML = `
+        <strong>Voice:</strong> ${selectedVoice.name} (${selectedVoice.style}) · 
+        <strong>Genre:</strong> ${genre}<br>
+        <strong>Tone:</strong> ${tone} · <strong>Pitch:</strong> ${pitch > 0 ? "+" : ""}${pitch} st · 
+        <strong>Bass:</strong> ${bass} · <strong>Treble:</strong> ${treble}
+      `;
+
+      result.classList.add("show");
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function shareSong() {
+      const text = `I just created an AI song with VoxSong using the voice "${selectedVoice.name}" in ${document.getElementById("genre").value} style!`;
+      if (navigator.share) {
+        navigator.share({ title: "My VoxSong", text });
+      } else {
+        navigator.clipboard.writeText(text).then(() => alert("Copied to clipboard!"));
+      }
+    }
+
+    renderVoices();
+    updateVal("tone");
+    updateVal("pitch");
+    updateVal("bass");
+    updateVal("treble");
+  </script>
+</body>
+</html>
